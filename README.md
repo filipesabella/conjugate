@@ -1,5 +1,7 @@
-Tool to show you a spanish verb's conjugations. I didn't like the current
-free apps in the app store.
+Little app I built for myself to show you a spanish verb's conjugations.
+I didn't like the current free apps in the app store.
+
+I didn't bother making it look good on desktop.
 
 All verb data from:
 https://github.com/ghidinelli/fred-jehle-spanish-verbs
