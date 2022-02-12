@@ -6,7 +6,7 @@
   "private": true,
   "scripts": {
     "start": "parcel src/html/index.html",
-    "build": "BASE_PATH=/timeline parcel build --out-dir docs --public-url ./ src/html/index.html"
+    "build": "BASE_PATH=/conjugate parcel build --out-dir docs --public-url ./ src/html/index.html"
   },
   "devDependencies": {
     "@babel/core": "^7.15.5",
