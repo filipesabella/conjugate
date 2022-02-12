@@ -3,3 +3,13 @@ free apps in the app store.
 
 All verb data from:
 https://github.com/ghidinelli/fred-jehle-spanish-verbs
+
+
+To re-parse the raw-data, use:
+
+```
+import { parseData } from '../lib/data';
+console.log(parseData(require('../../data/es-verbs-raw.json')))
+```
+
+and paste the contents into the es-verbs.json file.
