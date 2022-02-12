@@ -42,12 +42,12 @@ export function parseData(rawData: any): any {
         .find((c: any) => c.tense === 'Gerund')
         ?.conjugation;
 
-      if (!gerund) console.log(byInfinitive[undefined as any]);
-
       // reflexive verbs don't have past-participles
       const pastParticiple = rawConjugations
         .find((c: any) => c.tense === 'Pastparticiple')
         ?.conjugation;
+
+      const translation = rawConjugations[0].translation;
 
       const conjugationsByCategory = rawConjugations
         .filter((c: any) => c.tense !== 'Gerund' && c.tense !== 'Pastparticiple')
@@ -76,6 +76,7 @@ export function parseData(rawData: any): any {
       acc[infinitive] = {
         gerund,
         pastParticiple,
+        translation,
         conjugations,
       };
 

@@ -59,6 +59,7 @@ export const Main = () => {
           {verb.pastParticiple && <p>
             <label>Past Part.</label>
             <span>{verb.pastParticiple}</span></p>}
+          <p><label>Translation</label><span>{verb.translation}</span></p>
         </header>
         <ul className="conjugations">
           {verb.conjugations.map((conjugation: any) => {
