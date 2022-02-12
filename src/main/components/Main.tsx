@@ -14,11 +14,11 @@ export const Main = () => {
 
     setVerb(null);
 
-    if (query === '') {
+    if (query === '' || query.length < 2) {
       setMatches([]);
     } else {
       const matches = Object.keys(data)
-        .filter((verb: any) => fuzzy(query, verb));
+        .filter((verb: any) => verb.indexOf(query) >= 0);
       setMatches(matches.slice(0, 5));
     }
 
@@ -79,11 +79,3 @@ export const Main = () => {
     }
   </div>;
 };
-
-// https://stackoverflow.com/questions/9206013/javascript-fuzzy-search
-function fuzzy(query: string, text: string): boolean {
-  for (let i = 0, n = -1, l; l = query[i]; i++)
-    if (!~(n = text.indexOf(l, n + 1))) return false;
-
-  return true;
-}
