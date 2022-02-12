@@ -9,7 +9,7 @@ export const Main = () => {
   const [matches, setMatches] = useState([] as string[]);
   const [verb, setVerb] = useState(null as any | null);
 
-  const search = (query:string) => {
+  const search = (query: string) => {
     setQuery(query);
 
     setVerb(null);
@@ -21,6 +21,10 @@ export const Main = () => {
         .filter((verb: any) => fuzzy(query, verb));
       setMatches(matches.slice(0, 5));
     }
+
+    document
+      .querySelector<HTMLInputElement>('.search input')
+      ?.focus();
   };
 
   const chooseVerb = (verb: string) => {
@@ -30,10 +34,17 @@ export const Main = () => {
   };
 
   return <div className="main">
-    <input type="text"
-      autoFocus={true}
-      value={query}
-      onChange={e => search(e.target.value)}></input>
+    <div className="search">
+      <input
+        type="search"
+        placeholder="Search for a verb"
+        autoFocus={true}
+        value={query}
+        onChange={e => search(e.target.value)}></input>
+      {query.length >= 1 && <span
+        className="clear"
+        onClick={() => search('')}>clear</span>}
+    </div>
 
     {matches.length > 0 && <ul className="matches">
       {matches.map(m =>

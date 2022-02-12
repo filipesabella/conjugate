@@ -4,13 +4,26 @@
   flex-direction: column;
   margin: 1em;
 
-  input {
-    &:focus {
-      outline: none;
+  .search {
+    position: relative;
+
+    input {
+      width: 100%;
+      border-radius: 0;
+      border: 1px solid var(--lighter-color);
+      padding: .5em;
+
+      &:focus {
+        outline: none;
+      }
     }
-    border-radius: 0;
-    border: 1px solid var(--lighter-color);
-    padding: .5em;
+    .clear {
+      color: gray;
+      cursor: pointer;
+      position: absolute;
+      right: .75em;
+      line-height: 2.25em;
+    }
   }
 
   ul,
