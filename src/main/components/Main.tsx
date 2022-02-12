@@ -9,12 +9,7 @@ export const Main = () => {
   const [matches, setMatches] = useState([] as string[]);
   const [verb, setVerb] = useState(null as any | null);
 
-  React.useEffect(() => {
-    chooseVerb('olvidar');
-  }, []);
-
-  const onType = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const query = event.target.value;
+  const search = (query:string) => {
     setQuery(query);
 
     setVerb(null);
@@ -30,6 +25,7 @@ export const Main = () => {
 
   const chooseVerb = (verb: string) => {
     setMatches([]);
+    setQuery(verb);
     setVerb(data[verb]);
   };
 
@@ -37,25 +33,30 @@ export const Main = () => {
     <input type="text"
       autoFocus={true}
       value={query}
-      onChange={onType}></input>
+      onChange={e => search(e.target.value)}></input>
 
-    <ul className="matches">
-      {matches.length > 0 && matches.map(m =>
+    {matches.length > 0 && <ul className="matches">
+      {matches.map(m =>
         <li key={m} onClick={() => chooseVerb(m)}>{m}</li>)}
-    </ul>
+    </ul>}
 
     {verb &&
       <div className="verb">
-        <span>Gerundio: {verb.gerund}</span>
-        {verb.pastParticiple && <span>Past Participle: {verb.pastParticiple}</span>}
+        <header>
+          <p><label>Gerund</label><span>{verb.gerund}</span></p>
+          {verb.pastParticiple && <p>
+            <label>Past Part.</label>
+            <span>{verb.pastParticiple}</span></p>}
+        </header>
         <ul className="conjugations">
           {verb.conjugations.map((conjugation: any) => {
             return <li key={conjugation.category}>
-              <span className="category">{conjugation.category}</span>
+              <h2 className="category">{conjugation.category}</h2>
               <ul>
                 {conjugation.conjugations.map((conjugation: any) => {
-                  return <li key={`${conjugation.performer}-${conjugation.conjugation}`}>
-                    <span className="performer">{conjugation.performer}</span>&nbsp;-&nbsp;
+                  return <li
+                    key={`${conjugation.performer}-${conjugation.conjugation}`}>
+                    <span className="performer">{conjugation.performer}</span>
                     <span className="conjugation">{conjugation.text}</span>
                   </li>;
                 })}
