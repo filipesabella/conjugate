@@ -18,7 +18,8 @@ export const Main = () => {
       setMatches([]);
     } else {
       const matches = Object.keys(data)
-        .filter((verb: any) => verb.indexOf(query) >= 0);
+        .filter((verb: any) => verb.indexOf(query) >= 0)
+        .sort((a, b) => a.indexOf(query) - b.indexOf(query));
       setMatches(matches.slice(0, 5));
     }
 
