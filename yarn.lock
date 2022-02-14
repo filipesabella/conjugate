@@ -956,6 +956,11 @@
     ora "^2.1.0"
     strip-ansi "^4.0.0"
 
+"@parcel/service-worker@^2.3.1":
+  version "2.3.1"
+  resolved "https://registry.yarnpkg.com/@parcel/service-worker/-/service-worker-2.3.1.tgz#712fda96a9f1f4463d35d84d0e20f6dccff66667"
+  integrity sha512-CJjxnRADdoh51QW+0zJWy7FB7Gh/JGLibU5rTkrwtxlzL7hXVFcloi0IZOIn5ekVRuWksFWE+wYQrk6NUWVBxw==
+
 "@parcel/utils@^1.11.0":
   version "1.11.0"
   resolved "https://registry.yarnpkg.com/@parcel/utils/-/utils-1.11.0.tgz#539e08fff8af3b26eca11302be80b522674b51ea"
