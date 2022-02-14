@@ -2,16 +2,19 @@
   flex: 1;
   display: flex;
   flex-direction: column;
-  margin: 1em;
 
   .search {
-    position: relative;
+    position: sticky;
+    top: 0;
+    background: var(--lighter-color);
 
     input {
-      width: 100%;
       border-radius: 0;
       border: none;
       padding: .5em;
+      width: calc(100% - 2em);
+      margin: 1em;
+      margin-bottom: 0;
 
       &:focus {
         outline: none;
@@ -28,7 +31,8 @@
       color: gray;
       cursor: pointer;
       position: absolute;
-      right: .75em;
+      top: 1em;
+      right: 1.5em;
       line-height: 2.25em;
     }
   }
@@ -43,6 +47,7 @@
   .matches {
     background-color: var(--light-color);
     line-height: 2em;
+    margin: 0 1em;
 
     li {
       padding: .6em .5em;
@@ -58,9 +63,10 @@
   .verb {
     display: flex;
     flex-direction: column;
-    padding-top: 1em;
 
     header {
+      margin: 1em;
+
       label {
         display: inline-block;
         width: 6em;
@@ -72,10 +78,12 @@
         background-color: var(--light-color);
         flex: 1;
         font-size: 1.1em;
-        margin-top: 1em;
-        padding: .5em 1em;
-        margin-left: -1em;
-        margin-right: -.9em;
+        padding: .5em .8em;
+
+        +ul {
+          margin: 0 1em;
+          margin-bottom: 1em;
+        }
       }
 
       .performer {
