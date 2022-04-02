@@ -6,7 +6,10 @@ const data = require('../../data/es-verbs.json');
 
 export const Main = () => {
   const [query, setQuery] = useState('');
-  const [matches, setMatches] = useState([] as string[]);
+  const [matches, setMatches] = useState([
+    'ser',
+    'hacer',
+  ] as string[]);
   const [verb, setVerb] = useState(null as any | null);
 
   const search = (query: string) => {
